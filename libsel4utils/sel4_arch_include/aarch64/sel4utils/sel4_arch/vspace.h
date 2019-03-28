@@ -18,6 +18,10 @@
 
 #define VSPACE_NUM_LEVELS       4
 
+#elif defined (CONFIG_ARM_PA_SIZE_BITS_40)
+
+#define VSPACE_NUM_LEVELS       3
+
 #else
 #error Unspecified PA size bits
 #endif
