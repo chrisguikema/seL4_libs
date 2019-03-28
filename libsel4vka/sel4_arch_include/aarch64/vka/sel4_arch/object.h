@@ -31,6 +31,9 @@ LEAKY(page_upper_directory)
 
 static inline int vka_alloc_vspace_root(vka_t *vka, vka_object_t *result)
 {
+#ifdef CONFIG_START_L1
+    return vka_alloc_page_upper_directory(vka, result);
+#endif
     return vka_alloc_page_global_directory(vka, result);
 }
 
@@ -54,4 +57,3 @@ vka_arm_mode_get_object_size(seL4_Word objectType)
         return -1;
     }
 }
-
